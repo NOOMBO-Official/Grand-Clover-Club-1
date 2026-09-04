@@ -157,7 +157,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#140b2e] select-none overflow-hidden font-sans text-white pt-2 md:pt-8">
+    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#140b2e] select-none overflow-hidden font-sans text-white pt-[max(0.5rem,env(safe-area-inset-top))]">
       <CasinoTicker />
       
       {/* Background Dots Pattern (Deep space / halftone style) */}
@@ -165,44 +165,45 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#1b0845] via-[#210959] to-[#0a021c] z-0 pointer-events-none mix-blend-overlay"></div>
 
       {/* Top Navigation Bar (AAA Mobile style) */}
-      <div className="h-14 md:h-16 w-full bg-gradient-to-b from-[#fde047] via-[#eab308] to-[#713f12] flex items-center justify-between px-2 md:px-6 z-20 shadow-[0_5px_15px_rgba(0,0,0,0.8)] border-b-[3px] border-[#fef08a]">
+      <div className="min-h-[3.5rem] md:h-16 w-full bg-gradient-to-b from-[#fde047] via-[#eab308] to-[#713f12] flex items-center justify-between px-1 sm:px-2 md:px-6 py-1 z-20 shadow-[0_5px_15px_rgba(0,0,0,0.8)] border-b-[3px] border-[#fef08a] gap-1 sm:gap-2">
         
         {/* Left: Home & Balance */}
-        <div className="flex items-center gap-2 md:gap-4">
-          <button onClick={onBack} className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-b from-[#b45309] to-[#451a03] rounded-full border-[3px] border-[#fef08a] shadow-[0_4px_8px_rgba(0,0,0,0.6),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center hover:brightness-110 active:scale-95 transition-all">
-            <Home className="text-[#fef08a]" fill="currentColor" size={20} />
+        <div className="flex flex-1 min-w-0 items-center gap-1 sm:gap-2 md:gap-4">
+          <button onClick={onBack} className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-b from-[#b45309] to-[#451a03] rounded-full border-[2px] sm:border-[3px] border-[#fef08a] shadow-[0_4px_8px_rgba(0,0,0,0.6),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center hover:brightness-110 active:scale-95 transition-all">
+            <Home className="text-[#fef08a]" fill="currentColor" size={16} />
           </button>
           
-          <div className="flex items-center bg-black/80 rounded-full border-2 border-[#ca8a04] h-8 md:h-10 pl-1 pr-1 md:pr-1 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] relative">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#fef08a] via-[#eab308] to-[#854d0e] flex items-center justify-center text-[#451a03] font-black text-lg shadow-[0_2px_4px_rgba(0,0,0,0.6)] border-2 border-[#fef08a] absolute -left-2 md:-left-4">
+          <div className="flex flex-1 min-w-0 max-w-[140px] sm:max-w-[180px] md:max-w-[220px] items-center bg-black/80 rounded-full border-2 border-[#ca8a04] h-7 sm:h-8 md:h-10 pl-1 pr-1 md:pr-1 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] relative ml-2 sm:ml-3">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 shrink-0 rounded-full bg-gradient-to-br from-[#fef08a] via-[#eab308] to-[#854d0e] flex items-center justify-center text-[#451a03] font-black text-sm sm:text-lg shadow-[0_2px_4px_rgba(0,0,0,0.6)] border-2 border-[#fef08a] absolute -left-2 sm:-left-3 md:-left-4">
               $
             </div>
-            <span className="ml-8 md:ml-10 pr-2 text-white font-bold font-sans text-sm md:text-base tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+            <span className="flex-1 truncate pl-5 sm:pl-6 md:pl-8 pr-1 sm:pr-2 text-white font-bold font-sans text-xs sm:text-sm md:text-base tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
               {balance.toLocaleString('en-US')}
             </span>
-            <button className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-b from-[#4ade80] to-[#166534] flex items-center justify-center text-white border-2 border-[#86efac] shadow-[0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 active:scale-95 z-10 mr-1">
-              <Plus size={16} strokeWidth={3} />
+            <button className="shrink-0 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-b from-[#4ade80] to-[#166534] flex items-center justify-center text-white border-2 border-[#86efac] shadow-[0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 active:scale-95 z-10 mr-0 sm:mr-1">
+              <Plus size={12} strokeWidth={3} />
             </button>
           </div>
         </div>
 
         {/* Center: Buy/Deal Toggle */}
-        <div className="hidden md:flex items-center bg-[#451a03]/80 p-1 rounded-full border-2 border-[#fef08a] shadow-[inset_0_2px_5px_rgba(0,0,0,0.5)]">
+        <div className="hidden lg:flex shrink-0 items-center bg-[#451a03]/80 p-1 rounded-full border-2 border-[#fef08a] shadow-[inset_0_2px_5px_rgba(0,0,0,0.5)]">
           <button className="px-6 py-1 bg-gradient-to-b from-[#4ade80] to-[#14532d] rounded-full text-white font-black tracking-widest text-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)] border border-[#86efac]">BUY</button>
           <button className="px-6 py-1 bg-gradient-to-b from-[#f87171] to-[#7f1d1d] rounded-full text-white font-black tracking-widest text-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)] border border-[#fca5a5] ml-1">DEAL</button>
         </div>
 
         {/* Right: Level & Menu */}
-        <div className="flex items-center gap-2 md:gap-4 relative z-50">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2 md:gap-4 relative z-50">
           <SettingsControls />
-          <div className="hidden sm:flex items-center bg-gradient-to-r from-[#1e3a8a] to-[#172554] rounded-full border-2 border-[#60a5fa] h-8 md:h-10 pr-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] relative pl-10 ml-6">
-            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 text-3xl drop-shadow-[0_0_8px_rgba(96,165,250,1)] z-10 text-[#60a5fa]">
+          <div className="hidden md:flex items-center bg-gradient-to-r from-[#1e3a8a] to-[#172554] rounded-full border-2 border-[#60a5fa] h-8 md:h-10 pr-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] relative pl-10 ml-6">
+            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl drop-shadow-[0_0_8px_rgba(96,165,250,1)] z-10 text-[#60a5fa]">
               ⭐
             </div>
-            <span className="text-white font-black tracking-widest text-sm drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">LEVEL 3</span>
+            <span className="text-white font-black tracking-widest text-xs md:text-sm drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">LEVEL 3</span>
           </div>
-          <button className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-b from-[#fef08a] to-[#b45309] rounded-full border-[3px] border-[#fef08a] shadow-[0_4px_8px_rgba(0,0,0,0.6),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center hover:brightness-110 active:scale-95 transition-all text-[#451a03]">
-            <Menu size={24} strokeWidth={3} />
+          <button className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-b from-[#fef08a] to-[#b45309] rounded-full border-[2px] sm:border-[3px] border-[#fef08a] shadow-[0_4px_8px_rgba(0,0,0,0.6),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center hover:brightness-110 active:scale-95 transition-all text-[#451a03]">
+            <Menu size={16} strokeWidth={3} className="sm:hidden" />
+            <Menu size={24} strokeWidth={3} className="hidden sm:block" />
           </button>
         </div>
       </div>

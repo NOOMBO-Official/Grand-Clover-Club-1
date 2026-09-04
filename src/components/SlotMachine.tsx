@@ -152,7 +152,7 @@ export const SlotMachine: React.FC<SlotMachineProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#1a0a00] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] select-none overflow-hidden font-sans text-white pt-2 md:pt-8">
+    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#1a0a00] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] select-none overflow-hidden font-sans text-white pt-[max(0.5rem,env(safe-area-inset-top))]">
       <CasinoTicker />
       
       {/* Background Lighting / Saloon Vibe */}
@@ -163,43 +163,47 @@ export const SlotMachine: React.FC<SlotMachineProps> = ({ onBack }) => {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 z-0 pointer-events-none"></div>
 
       {/* Top Navigation Bar (AAA Mobile style - matching the image) */}
-      <div className="h-12 md:h-16 w-full bg-gradient-to-b from-[#1e293b] to-[#020617] border-b-[3px] border-[#fbbf24] flex items-center justify-between px-2 md:px-6 z-50 shadow-[0_5px_20px_rgba(0,0,0,0.9)] relative">
+      <div className="min-h-[3rem] md:h-16 w-full bg-gradient-to-b from-[#1e293b] to-[#020617] border-b-[3px] border-[#fbbf24] flex items-center justify-between px-1 sm:px-2 md:px-6 py-1 md:py-0 z-50 shadow-[0_5px_20px_rgba(0,0,0,0.9)] relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-200 to-transparent opacity-50"></div>
         
         {/* Left: Star / Level progress */}
-        <div className="flex items-center">
-          <div className="relative w-32 md:w-48 h-6 md:h-8 bg-[#0f172a] border-2 border-[#475569] rounded-full shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)] ml-4 md:ml-8">
-             <div className="absolute -left-6 md:-left-8 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-gradient-to-b from-[#fef08a] via-[#eab308] to-[#ca8a04] rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_15px_rgba(250,204,21,0.8)] z-10">
-               <span className="text-xl md:text-3xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">⭐</span>
+        <div className="flex items-center shrink-0">
+          <div className="relative hidden sm:block w-24 md:w-48 h-5 md:h-8 bg-[#0f172a] border-2 border-[#475569] rounded-full shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)] ml-4 md:ml-8">
+             <div className="absolute -left-5 md:-left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-14 md:h-14 bg-gradient-to-b from-[#fef08a] via-[#eab308] to-[#ca8a04] rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_15px_rgba(250,204,21,0.8)] z-10">
+               <span className="text-sm md:text-3xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">⭐</span>
              </div>
              <div className="h-full w-2/3 bg-gradient-to-r from-[#60a5fa] to-[#1d4ed8] rounded-full shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)]"></div>
           </div>
+          <button onClick={onBack} className="sm:hidden w-8 h-8 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[2px] border-[#bfdbfe] shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center justify-center text-white mx-1">
+            <ArrowLeft size={16} strokeWidth={4} />
+          </button>
         </div>
 
         {/* Center: Coin Balance */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center">
-           <div className="relative w-40 md:w-56 h-7 md:h-9 bg-[#0f172a] border-2 border-[#475569] rounded-full shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] flex items-center justify-center">
-             <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 bg-gradient-to-b from-[#fef08a] to-[#ca8a04] rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_10px_rgba(250,204,21,0.5)] z-10 text-[#451a03] font-black">
+        <div className="flex-1 flex justify-center sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2 px-1">
+           <div className="relative w-full max-w-[140px] sm:max-w-none sm:w-40 md:w-56 h-6 sm:h-7 md:h-9 bg-[#0f172a] border-2 border-[#475569] rounded-full shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] flex items-center justify-center">
+             <div className="absolute -left-3 sm:-left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 bg-gradient-to-b from-[#fef08a] to-[#ca8a04] rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_10px_rgba(250,204,21,0.5)] z-10 text-[#451a03] font-black text-xs sm:text-base">
                $
              </div>
-             <span className="text-white font-black font-sans text-sm md:text-lg tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)] pl-4">
+             <span className="text-white font-black font-sans text-[10px] sm:text-sm md:text-lg tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)] pl-3 sm:pl-4 truncate px-2">
                {balance.toLocaleString('en-US')}
              </span>
            </div>
         </div>
 
         {/* Right: Blue Buttons */}
-        <div className="flex items-center gap-2 md:gap-4 relative z-50">
+        <div className="flex items-center gap-1 sm:gap-2 md:gap-4 relative z-50 shrink-0">
           <SettingsControls />
-          <button className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center text-white font-black text-lg md:text-2xl hover:brightness-110 active:translate-y-1 transition-all">
-            <HelpCircle size={24} strokeWidth={3} className="drop-shadow-md hidden md:block" />
+          <button className="w-7 h-7 sm:w-8 sm:h-8 md:w-12 md:h-12 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[2px] sm:border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center text-white font-black text-xs sm:text-lg md:text-2xl hover:brightness-110 active:translate-y-1 transition-all">
+            <HelpCircle size={20} strokeWidth={3} className="drop-shadow-md hidden md:block" />
             <span className="md:hidden">?</span>
           </button>
-          <button onClick={onBack} className="w-16 h-8 md:w-24 md:h-12 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
-            <ArrowLeft size={24} strokeWidth={4} className="drop-shadow-md" />
+          <button onClick={onBack} className="hidden sm:flex w-12 sm:w-16 h-7 sm:h-8 md:w-24 md:h-12 rounded-full bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[2px] sm:border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
+            <ArrowLeft size={20} strokeWidth={4} className="drop-shadow-md" />
           </button>
-          <button className="w-8 h-8 md:w-12 md:h-12 rounded-xl bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
-            <Menu size={24} strokeWidth={3} className="drop-shadow-md" />
+          <button className="w-7 h-7 sm:w-8 sm:h-8 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#60a5fa] to-[#1e3a8a] border-[2px] sm:border-[3px] border-[#bfdbfe] shadow-[0_3px_5px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
+            <Menu size={16} strokeWidth={3} className="drop-shadow-md md:hidden" />
+            <Menu size={24} strokeWidth={3} className="drop-shadow-md hidden md:block" />
           </button>
         </div>
       </div>

@@ -193,16 +193,16 @@ export const Lobby: React.FC<LobbyProps> = ({ onSelect }) => {
       </AnimatePresence>
 
       {/* Grand Title - Floating in Center */}
-      <div className="absolute top-[25%] md:top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none text-center w-full">
+      <div className="absolute top-[50%] md:top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none text-center w-full">
         <motion.div 
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, type: 'spring' }}
         >
-          <h1 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-yellow-200 to-yellow-600 tracking-widest drop-shadow-[0_10px_20px_rgba(0,0,0,1)]" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-yellow-200 to-yellow-600 tracking-widest drop-shadow-[0_10px_20px_rgba(0,0,0,1)]" style={{ fontFamily: 'Georgia, serif' }}>
             GRAND CLOVER
           </h1>
-          <h2 className="text-xl md:text-3xl text-white font-bold tracking-[0.5em] mt-2 drop-shadow-[0_5px_10px_rgba(0,0,0,1)] bg-black/50 inline-block px-8 py-2 rounded-full border border-white/20 backdrop-blur-md">
+          <h2 className="text-lg sm:text-xl md:text-3xl text-white font-bold tracking-[0.5em] mt-1 sm:mt-2 drop-shadow-[0_5px_10px_rgba(0,0,0,1)] bg-black/50 inline-block px-4 sm:px-8 py-1 sm:py-2 rounded-full border border-white/20 backdrop-blur-md">
             CLUB
           </h2>
         </motion.div>
@@ -245,17 +245,17 @@ export const Lobby: React.FC<LobbyProps> = ({ onSelect }) => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-leather.png')] opacity-50 z-0"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(234,179,8,0.2),_transparent_70%)] z-0 group-hover:scale-110 transition-transform duration-700"></div>
         
-        <div className="relative z-10 flex flex-col items-center justify-end md:justify-center h-full p-10 pb-20 md:pb-10 text-center">
-          <div className="flex gap-2 mb-6 drop-shadow-[0_0_20px_rgba(255,0,0,1)] transform group-hover:-translate-y-4 transition-transform duration-500">
-            <span className="text-7xl md:text-9xl font-black text-red-500">7</span>
-            <span className="text-7xl md:text-9xl font-black text-red-500">7</span>
-            <span className="text-7xl md:text-9xl font-black text-red-500">7</span>
+        <div className="relative z-10 flex flex-col items-center justify-start md:justify-center h-full p-4 md:p-10 pt-[max(2rem,env(safe-area-inset-top))] md:pt-10 text-center">
+          <div className="flex gap-2 mb-2 sm:mb-6 drop-shadow-[0_0_20px_rgba(255,0,0,1)] transform group-hover:-translate-y-4 transition-transform duration-500">
+            <span className="text-5xl sm:text-7xl md:text-9xl font-black text-red-500">7</span>
+            <span className="text-5xl sm:text-7xl md:text-9xl font-black text-red-500">7</span>
+            <span className="text-5xl sm:text-7xl md:text-9xl font-black text-red-500">7</span>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-yellow-500 mb-4 font-serif drop-shadow-[0_2px_5px_rgba(0,0,0,1)]">CLASSIC 3-REEL</h3>
-          <p className="text-yellow-200/80 text-lg mb-8 max-w-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Experience the authentic mechanical feel of the golden era.</p>
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-yellow-500 mb-2 md:mb-4 font-serif drop-shadow-[0_2px_5px_rgba(0,0,0,1)]">CLASSIC 3-REEL</h3>
+          <p className="text-yellow-200/80 text-sm sm:text-lg mb-4 md:mb-8 max-w-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] px-2">Experience the authentic mechanical feel of the golden era.</p>
           
-          <div className="flex items-center gap-3 text-yellow-900 font-black text-xl bg-gradient-to-b from-yellow-300 to-yellow-600 px-8 py-4 rounded-full border-2 border-yellow-200 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] transition-all shadow-xl">
-            <Play size={28} fill="currentColor" />
+          <div className="flex items-center gap-2 sm:gap-3 text-yellow-900 font-black text-sm sm:text-xl bg-gradient-to-b from-yellow-300 to-yellow-600 px-6 sm:px-8 py-2 sm:py-4 rounded-full border-2 border-yellow-200 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(250,204,21,0.6)] transition-all shadow-xl">
+            <Play className="w-5 h-5 sm:w-7 sm:h-7" fill="currentColor" />
             <span>PLAY CLASSIC</span>
           </div>
         </div>
@@ -270,19 +270,19 @@ export const Lobby: React.FC<LobbyProps> = ({ onSelect }) => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 z-0"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(168,85,247,0.2),_transparent_70%)] z-0 group-hover:scale-110 transition-transform duration-700"></div>
         
-        <div className="relative z-10 flex flex-col items-center justify-end md:justify-center h-full p-10 pb-20 md:pb-10 text-center">
-          <div className="flex gap-2 mb-6 drop-shadow-[0_0_20px_rgba(168,85,247,1)] text-purple-300 transform group-hover:-translate-y-4 transition-transform duration-500">
-            <div className="w-12 h-16 md:w-16 md:h-24 bg-black border-4 border-purple-500 rounded-lg flex items-center justify-center text-3xl md:text-5xl shadow-inner">💎</div>
-            <div className="w-12 h-16 md:w-16 md:h-24 bg-black border-4 border-purple-500 rounded-lg flex items-center justify-center text-3xl md:text-5xl shadow-inner">💎</div>
-            <div className="w-12 h-16 md:w-16 md:h-24 bg-black border-4 border-purple-500 rounded-lg flex items-center justify-center text-3xl md:text-5xl shadow-inner">💎</div>
+        <div className="relative z-10 flex flex-col items-center justify-end md:justify-center h-full p-4 md:p-10 pb-[max(2rem,env(safe-area-inset-bottom))] md:pb-10 text-center">
+          <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-6 drop-shadow-[0_0_20px_rgba(168,85,247,1)] text-purple-300 transform group-hover:-translate-y-4 transition-transform duration-500">
+            <div className="w-10 h-14 sm:w-12 sm:h-16 md:w-16 md:h-24 bg-black border-[2px] sm:border-4 border-purple-500 rounded-lg flex items-center justify-center text-2xl sm:text-3xl md:text-5xl shadow-inner">💎</div>
+            <div className="w-10 h-14 sm:w-12 sm:h-16 md:w-16 md:h-24 bg-black border-[2px] sm:border-4 border-purple-500 rounded-lg flex items-center justify-center text-2xl sm:text-3xl md:text-5xl shadow-inner">💎</div>
+            <div className="w-10 h-14 sm:w-12 sm:h-16 md:w-16 md:h-24 bg-black border-[2px] sm:border-4 border-purple-500 rounded-lg flex items-center justify-center text-2xl sm:text-3xl md:text-5xl shadow-inner">💎</div>
             <div className="hidden md:flex w-16 h-24 bg-black border-4 border-purple-500 rounded-lg items-center justify-center text-5xl shadow-inner">💎</div>
             <div className="hidden md:flex w-16 h-24 bg-black border-4 border-purple-500 rounded-lg items-center justify-center text-5xl shadow-inner">💎</div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-purple-400 mb-4 font-serif drop-shadow-[0_2px_5px_rgba(0,0,0,1)]">MODERN 5-REEL</h3>
-          <p className="text-purple-200/80 text-lg mb-8 max-w-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">High definition video slots with expanded paylines and features.</p>
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-purple-400 mb-2 md:mb-4 font-serif drop-shadow-[0_2px_5px_rgba(0,0,0,1)]">MODERN 5-REEL</h3>
+          <p className="text-purple-200/80 text-sm sm:text-lg mb-4 md:mb-8 max-w-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] px-2">High definition video slots with expanded paylines and features.</p>
           
-          <div className="flex items-center gap-3 text-white font-black text-xl bg-gradient-to-b from-purple-500 to-purple-800 px-8 py-4 rounded-full border-2 border-purple-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all shadow-xl">
-            <Play size={28} fill="currentColor" />
+          <div className="flex items-center gap-2 sm:gap-3 text-white font-black text-sm sm:text-xl bg-gradient-to-b from-purple-500 to-purple-800 px-6 sm:px-8 py-2 sm:py-4 rounded-full border-2 border-purple-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all shadow-xl">
+            <Play className="w-5 h-5 sm:w-7 sm:h-7" fill="currentColor" />
             <span>PLAY MODERN</span>
           </div>
         </div>
