@@ -93,9 +93,12 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           
           if (userSnap.exists()) {
             const data = userSnap.data();
-            // Just read the balance, don't overwrite it!
+            // User requested to explicitly use coinBalance (int64) and not a double field
             if (data.coinBalance !== undefined) {
-              setBalance(data.coinBalance);
+              setBalance(Math.floor(Number(data.coinBalance)));
+            } else if (data.balance !== undefined) {
+              // Fallback just in case, but prefer coinBalance
+              setBalance(Math.floor(Number(data.balance)));
             } else {
               // Fallback to local default if somehow missing, but DO NOT write 0 to DB
               setBalance(20670000);

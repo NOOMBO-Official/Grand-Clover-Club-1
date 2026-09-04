@@ -178,7 +178,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
               $
             </div>
             <span className="ml-8 md:ml-10 pr-2 text-white font-bold font-sans text-sm md:text-base tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
-              {balance.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 })}
+              {balance.toLocaleString('en-US')}
             </span>
             <button className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-b from-[#4ade80] to-[#166534] flex items-center justify-center text-white border-2 border-[#86efac] shadow-[0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 active:scale-95 z-10 mr-1">
               <Plus size={16} strokeWidth={3} />
@@ -282,7 +282,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
           <div className="flex flex-col items-center justify-center px-4 md:px-6">
             <span className="text-[10px] md:text-xs text-[#60a5fa] font-black tracking-widest uppercase drop-shadow-md">TOTAL BET</span>
             <span className="text-sm md:text-xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
-              {bet.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 })}
+              {bet.toLocaleString('en-US')}
             </span>
           </div>
           <button 
@@ -297,7 +297,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
         <div className="hidden sm:flex flex-col items-center justify-center bg-[#172554] border-[3px] border-[#60a5fa] rounded-xl px-8 py-2 min-w-[200px] md:min-w-[250px] shadow-[inset_0_5px_15px_rgba(0,0,0,0.8),0_0_15px_rgba(59,130,246,0.3)]">
           <span className="text-[10px] md:text-sm text-[#93c5fd] font-black tracking-widest uppercase drop-shadow-md">TOTAL WIN</span>
           <span className={`text-2xl md:text-4xl font-black transition-colors ${winAmount > 0 ? 'text-[#fef08a] drop-shadow-[0_0_10px_rgba(250,204,21,1)]' : 'text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]'}`}>
-            {winAmount > 0 ? winAmount.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 }) : '0'}
+            {winAmount > 0 ? winAmount.toLocaleString('en-US') : '0'}
           </span>
         </div>
 
