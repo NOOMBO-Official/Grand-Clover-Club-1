@@ -47,7 +47,7 @@ export const Lobby: React.FC<LobbyProps> = ({ onSelect }) => {
   const isAuthenticated = user || oauthToken;
 
   return (
-    <div className="relative w-screen h-screen flex flex-col md:flex-row bg-[#0a0a0a] overflow-hidden">
+    <div className="relative w-full h-full flex flex-col md:flex-row bg-[#0a0a0a] overflow-hidden">
       <AnimatePresence>
         {newEventToast && (
           <motion.div
@@ -193,7 +193,7 @@ export const Lobby: React.FC<LobbyProps> = ({ onSelect }) => {
       </AnimatePresence>
 
       {/* Grand Title - Floating in Center */}
-      <div className="absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none text-center w-full">
+      <div className="absolute top-[25%] md:top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none text-center w-full">
         <motion.div 
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

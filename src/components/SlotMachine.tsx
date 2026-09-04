@@ -152,7 +152,7 @@ export const SlotMachine: React.FC<SlotMachineProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="fixed inset-0 w-screen h-screen flex flex-col bg-[#1a0a00] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] select-none overflow-hidden font-sans text-white pt-8">
+    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#1a0a00] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] select-none overflow-hidden font-sans text-white pt-2 md:pt-8">
       <CasinoTicker />
       
       {/* Background Lighting / Saloon Vibe */}
@@ -205,7 +205,7 @@ export const SlotMachine: React.FC<SlotMachineProps> = ({ onBack }) => {
       </div>
 
       {/* Main Play Area */}
-      <div className="flex-1 w-full flex flex-col items-center justify-center relative px-2 py-4 z-10">
+      <div className="flex-1 min-h-0 w-full flex flex-col items-center justify-center relative px-2 py-4 z-10">
         
         {/* GOLD RUSH Marquee */}
         <div className="relative z-30 -mb-6 md:-mb-10 pointer-events-none drop-shadow-[0_15px_15px_rgba(0,0,0,0.9)]">
@@ -280,42 +280,42 @@ export const SlotMachine: React.FC<SlotMachineProps> = ({ onBack }) => {
       </div>
 
       {/* Bottom Control Deck (Glossy buttons from image) */}
-      <div className="h-24 md:h-36 w-full bg-gradient-to-b from-[#374151] to-[#0f172a] border-t-4 border-[#6b7280] shadow-[0_-15px_30px_rgba(0,0,0,1)] relative z-30 flex items-center justify-center px-2 md:px-10 gap-3 md:gap-8 pb-4">
+      <div className="h-24 md:h-36 w-full bg-gradient-to-b from-[#374151] to-[#0f172a] border-t-4 border-[#6b7280] shadow-[0_-15px_30px_rgba(0,0,0,1)] relative z-30 flex items-center justify-between px-2 md:px-10 gap-1 sm:gap-3 md:gap-8 pb-4">
         
         {/* Left: Info/Orange Button */}
-        <button className="w-16 h-12 md:w-28 md:h-20 rounded-xl bg-gradient-to-b from-[#f97316] via-[#ea580c] to-[#9a3412] border-t-4 border-[#fdba74] border-b-[8px] border-b-[#7c2d12] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group">
-          <span className="text-white font-black text-[10px] md:text-sm drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">PAYTABLE</span>
+        <button className="flex-[1] max-w-[80px] h-12 md:h-20 rounded-xl bg-gradient-to-b from-[#f97316] via-[#ea580c] to-[#9a3412] border-t-4 border-[#fdba74] border-b-[8px] border-b-[#7c2d12] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group">
+          <span className="text-white font-black text-[8px] sm:text-[10px] md:text-sm drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">PAYS</span>
         </button>
 
         {/* Center-Left: Blue Rectangle (Decrease Bet) */}
         <button 
           onClick={() => !spinning && setBet(Math.max(10, bet - 10))}
-          className="w-20 h-12 md:w-32 md:h-20 rounded-xl bg-gradient-to-b from-[#60a5fa] via-[#2563eb] to-[#1e3a8a] border-t-4 border-[#bfdbfe] border-b-[8px] border-b-[#172554] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group"
+          className="flex-[1.5] max-w-[120px] h-12 md:h-20 rounded-xl bg-gradient-to-b from-[#60a5fa] via-[#2563eb] to-[#1e3a8a] border-t-4 border-[#bfdbfe] border-b-[8px] border-b-[#172554] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group"
         >
-          <span className="text-white font-black text-xs md:text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">BET -</span>
+          <span className="text-white font-black text-[10px] sm:text-xs md:text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">BET -</span>
         </button>
 
         {/* Center: Bet Display */}
-        <div className="w-24 h-12 md:w-40 md:h-20 rounded-xl bg-gradient-to-b from-[#1e3a8a] to-[#020617] border-2 border-[#3b82f6] shadow-[inset_0_10px_20px_rgba(0,0,0,1)] flex flex-col items-center justify-center relative overflow-hidden">
-           <span className="text-[#93c5fd] text-[8px] md:text-xs font-black tracking-widest absolute top-1 md:top-2 opacity-80">TOTAL BET</span>
-           <span className="text-white font-black text-sm md:text-2xl mt-2 md:mt-4 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">${bet}</span>
+        <div className="flex-[2] max-w-[160px] h-12 md:h-20 rounded-xl bg-gradient-to-b from-[#1e3a8a] to-[#020617] border-2 border-[#3b82f6] shadow-[inset_0_10px_20px_rgba(0,0,0,1)] flex flex-col items-center justify-center relative overflow-hidden">
+           <span className="text-[#93c5fd] text-[6px] sm:text-[8px] md:text-xs font-black tracking-widest absolute top-1 md:top-2 opacity-80">TOTAL BET</span>
+           <span className="text-white font-black text-xs sm:text-sm md:text-2xl mt-2 md:mt-4 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">${bet}</span>
         </div>
 
         {/* Center-Right: Blue Rectangle (Increase Bet) */}
         <button 
           onClick={() => !spinning && setBet(Math.min(balance, bet + 10))}
-          className="w-20 h-12 md:w-32 md:h-20 rounded-xl bg-gradient-to-b from-[#60a5fa] via-[#2563eb] to-[#1e3a8a] border-t-4 border-[#bfdbfe] border-b-[8px] border-b-[#172554] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group"
+          className="flex-[1.5] max-w-[120px] h-12 md:h-20 rounded-xl bg-gradient-to-b from-[#60a5fa] via-[#2563eb] to-[#1e3a8a] border-t-4 border-[#bfdbfe] border-b-[8px] border-b-[#172554] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center group"
         >
-           <span className="text-white font-black text-xs md:text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">BET +</span>
+           <span className="text-white font-black text-[10px] sm:text-xs md:text-lg drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] opacity-90 group-hover:opacity-100">BET +</span>
         </button>
 
         {/* Right: Massive Green Spin Button */}
         <button 
           onClick={handleSpin}
           disabled={spinning || balance < bet}
-          className="w-32 h-12 md:w-64 md:h-20 rounded-xl bg-gradient-to-b from-[#4ade80] via-[#16a34a] to-[#14532d] border-t-4 border-[#bbf7d0] border-b-[8px] border-b-[#064e3b] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center disabled:grayscale group ml-2 md:ml-4"
+          className="flex-[2.5] max-w-[200px] h-12 md:h-20 rounded-xl bg-gradient-to-b from-[#4ade80] via-[#16a34a] to-[#14532d] border-t-4 border-[#bbf7d0] border-b-[8px] border-b-[#064e3b] shadow-[0_10px_20px_rgba(0,0,0,0.9)] active:translate-y-[8px] active:border-b-0 active:mb-[8px] transition-all flex items-center justify-center disabled:grayscale group ml-1 sm:ml-2 md:ml-4"
         >
-          <span className="text-white font-black text-xl md:text-4xl drop-shadow-[0_3px_3px_rgba(0,0,0,0.9)] tracking-widest">SPIN</span>
+          <span className="text-white font-black text-base sm:text-xl md:text-4xl drop-shadow-[0_3px_3px_rgba(0,0,0,0.9)] tracking-widest">SPIN</span>
         </button>
 
       </div>

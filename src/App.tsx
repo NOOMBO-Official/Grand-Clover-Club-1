@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <GameProvider>
-      <div className="w-full h-full min-h-screen overflow-hidden bg-black text-white selection:bg-yellow-500/30">
+      <div className="w-[100dvw] h-[100dvh] overflow-hidden bg-black text-white selection:bg-yellow-500/30">
         <AnimatePresence mode="wait">
           {currentScreen === 'lobby' && (
             <Lobby key="lobby" onSelect={setCurrentScreen} />

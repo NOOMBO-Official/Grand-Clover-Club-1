@@ -157,7 +157,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="fixed inset-0 w-screen h-screen flex flex-col bg-[#140b2e] select-none overflow-hidden font-sans text-white pt-8">
+    <div className="fixed inset-0 w-full h-full flex flex-col bg-[#140b2e] select-none overflow-hidden font-sans text-white pt-2 md:pt-8">
       <CasinoTicker />
       
       {/* Background Dots Pattern (Deep space / halftone style) */}
@@ -208,7 +208,7 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
       </div>
 
       {/* Main Play Area */}
-      <div className="flex-1 w-full flex items-stretch justify-center relative z-10">
+      <div className="flex-1 min-h-0 w-full flex items-stretch justify-center relative z-10">
         
         {/* The Reels Container - AAA Style Golden Frame */}
         <div className="w-full h-full bg-[#0a0410] border-y-[6px] md:border-y-[12px] border-x-0 border-[#fef08a] shadow-[inset_0_5px_20px_rgba(0,0,0,0.9)] relative flex overflow-hidden">
@@ -270,31 +270,39 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
       </div>
 
       {/* Bottom Control Bar (AAA Mobile style) */}
-      <div className="h-28 md:h-32 w-full bg-[#1e293b] bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] border-t-8 border-[#fef08a] shadow-[0_-15px_30px_rgba(0,0,0,0.8)] relative z-30 flex items-center justify-between px-2 md:px-12 pb-2">
+      <div className="h-28 md:h-32 w-full bg-[#1e293b] bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] border-t-8 border-[#fef08a] shadow-[0_-15px_30px_rgba(0,0,0,0.8)] relative z-30 flex items-center justify-between px-1 sm:px-2 md:px-12 pb-2 gap-1 sm:gap-2 md:gap-6">
         
         {/* Info Button */}
-        <button className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-b from-[#ef4444] to-[#7f1d1d] border-[3px] border-[#fca5a5] shadow-[0_5px_10px_rgba(0,0,0,0.6),inset_0_2px_5px_rgba(255,255,255,0.4)] flex items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
+        <button className="hidden sm:flex w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-gradient-to-b from-[#ef4444] to-[#7f1d1d] border-[3px] border-[#fca5a5] shadow-[0_5px_10px_rgba(0,0,0,0.6),inset_0_2px_5px_rgba(255,255,255,0.4)] flex items-center justify-center text-white hover:brightness-110 active:translate-y-1 transition-all">
           <Info size={32} strokeWidth={3} />
         </button>
 
         {/* Bet Controls Box */}
-        <div className="flex items-center bg-black/80 rounded-[2rem] border-2 border-[#ca8a04] px-1 py-1 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] mx-2">
-          <div className="flex flex-col items-center justify-center px-4 md:px-6">
-            <span className="text-[10px] md:text-xs text-[#60a5fa] font-black tracking-widest uppercase drop-shadow-md">TOTAL BET</span>
-            <span className="text-sm md:text-xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+        <div className="flex-1 min-w-0 max-w-[200px] flex items-center justify-between bg-black/80 rounded-[2rem] border-2 border-[#ca8a04] px-1 py-1 shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)]">
+          <button 
+            onClick={() => !spinning && setBet(Math.max(10, bet - 1000))}
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-gradient-to-b from-[#3b82f6] to-[#1e3a8a] border-2 border-[#93c5fd] flex items-center justify-center shadow-md active:translate-y-1 hover:brightness-110"
+          >
+            <Minus size={20} strokeWidth={3} />
+          </button>
+          
+          <div className="flex flex-col items-center justify-center px-1 sm:px-2 md:px-6 truncate">
+            <span className="text-[8px] sm:text-[10px] md:text-xs text-[#60a5fa] font-black tracking-widest uppercase drop-shadow-md">TOTAL BET</span>
+            <span className="text-xs sm:text-sm md:text-xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)] truncate">
               {bet.toLocaleString('en-US')}
             </span>
           </div>
+
           <button 
             onClick={() => !spinning && setBet(Math.min(balance, bet + 1000))}
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-b from-[#3b82f6] to-[#1e3a8a] border-2 border-[#93c5fd] flex items-center justify-center shadow-md active:translate-y-1 hover:brightness-110 ml-2"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 rounded-full bg-gradient-to-b from-[#3b82f6] to-[#1e3a8a] border-2 border-[#93c5fd] flex items-center justify-center shadow-md active:translate-y-1 hover:brightness-110"
           >
-            <Plus size={24} strokeWidth={3} />
+            <Plus size={20} strokeWidth={3} />
           </button>
         </div>
 
         {/* Total Win Display */}
-        <div className="hidden sm:flex flex-col items-center justify-center bg-[#172554] border-[3px] border-[#60a5fa] rounded-xl px-8 py-2 min-w-[200px] md:min-w-[250px] shadow-[inset_0_5px_15px_rgba(0,0,0,0.8),0_0_15px_rgba(59,130,246,0.3)]">
+        <div className="hidden lg:flex flex-col items-center justify-center bg-[#172554] border-[3px] border-[#60a5fa] rounded-xl px-8 py-2 min-w-[200px] md:min-w-[250px] shadow-[inset_0_5px_15px_rgba(0,0,0,0.8),0_0_15px_rgba(59,130,246,0.3)]">
           <span className="text-[10px] md:text-sm text-[#93c5fd] font-black tracking-widest uppercase drop-shadow-md">TOTAL WIN</span>
           <span className={`text-2xl md:text-4xl font-black transition-colors ${winAmount > 0 ? 'text-[#fef08a] drop-shadow-[0_0_10px_rgba(250,204,21,1)]' : 'text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]'}`}>
             {winAmount > 0 ? winAmount.toLocaleString('en-US') : '0'}
@@ -302,23 +310,23 @@ export const VideoSlot: React.FC<VideoSlotProps> = ({ onBack }) => {
         </div>
 
         {/* Max Bet & Spin */}
-        <div className="flex items-center gap-2 md:gap-6">
+        <div className="flex flex-1 sm:flex-none justify-end items-center gap-1 sm:gap-2 md:gap-6">
           <button 
             onClick={() => !spinning && setBet(balance)}
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-b from-[#c084fc] to-[#6b21a8] border-[4px] border-[#e9d5ff] shadow-[0_8px_15px_rgba(0,0,0,0.6),inset_0_4px_8px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center active:translate-y-1 hover:brightness-110 transition-all group"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 rounded-full bg-gradient-to-b from-[#c084fc] to-[#6b21a8] border-[3px] sm:border-[4px] border-[#e9d5ff] shadow-[0_8px_15px_rgba(0,0,0,0.6),inset_0_4px_8px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center active:translate-y-1 hover:brightness-110 transition-all group"
           >
-            <span className="text-white font-black text-sm md:text-base drop-shadow-md group-hover:text-yellow-200">MAX</span>
-            <span className="text-white font-black text-sm md:text-base drop-shadow-md group-hover:text-yellow-200">BET</span>
+            <span className="text-white font-black text-[10px] sm:text-sm md:text-base drop-shadow-md group-hover:text-yellow-200">MAX</span>
+            <span className="text-white font-black text-[10px] sm:text-sm md:text-base drop-shadow-md group-hover:text-yellow-200">BET</span>
           </button>
           
           <motion.button 
             whileTap={{ scale: 0.95 }}
             onClick={handleSpin}
             disabled={spinning || balance < bet}
-            className="relative w-28 h-20 md:w-40 md:h-28 rounded-[2rem] bg-gradient-to-b from-[#4ade80] via-[#22c55e] to-[#14532d] border-[6px] border-[#86efac] shadow-[0_10px_20px_rgba(0,0,0,0.8),inset_0_4px_15px_rgba(255,255,255,0.6)] flex flex-col items-center justify-center group disabled:opacity-50 disabled:grayscale transition-all"
+            className="relative flex-[2] sm:flex-none w-full min-w-[80px] max-w-[160px] sm:w-28 h-16 sm:h-20 md:w-40 md:h-28 rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-b from-[#4ade80] via-[#22c55e] to-[#14532d] border-[4px] sm:border-[6px] border-[#86efac] shadow-[0_10px_20px_rgba(0,0,0,0.8),inset_0_4px_15px_rgba(255,255,255,0.6)] flex flex-col items-center justify-center group disabled:opacity-50 disabled:grayscale transition-all"
           >
-            <span className="text-white font-black text-3xl md:text-4xl drop-shadow-[0_3px_5px_rgba(0,0,0,0.8)] tracking-wider">SPIN</span>
-            <span className="text-[#dcfce7] text-[9px] md:text-xs font-bold mt-1 opacity-90 tracking-widest drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">HOLD FOR AUTOSPIN</span>
+            <span className="text-white font-black text-xl sm:text-3xl md:text-4xl drop-shadow-[0_3px_5px_rgba(0,0,0,0.8)] tracking-wider">SPIN</span>
+            <span className="text-[#dcfce7] text-[6px] sm:text-[9px] md:text-xs font-bold mt-0 sm:mt-1 opacity-90 tracking-widest drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">HOLD FOR AUTOSPIN</span>
           </motion.button>
         </div>
 
