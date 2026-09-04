@@ -1,0 +1,8 @@
+{
+  "name": "Grand Clover Club",
+  "description": "A luxurious 50s and 60s style 2D casino slot machine game with vintage aesthetics and sound effects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
